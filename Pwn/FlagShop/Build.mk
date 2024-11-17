@@ -1,0 +1,14 @@
+TARGET := flagshop
+
+NX := 1
+ASLR := 1
+# RELRO := 1
+# CANARY := 1
+# STRIP := 1
+# DEBUG := 1
+
+PUBLISH_BUILD := $(TARGET)
+
+DOCKER_IMAGE := flagshop
+DOCKER_PORTS := 24001
+DOCKER_TIMELIMIT := 30

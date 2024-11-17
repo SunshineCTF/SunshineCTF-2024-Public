@@ -1,0 +1,1 @@
+flag{youd_be_better_off_reading_the_source_code_directly_but_i_guess_this_is_fine}

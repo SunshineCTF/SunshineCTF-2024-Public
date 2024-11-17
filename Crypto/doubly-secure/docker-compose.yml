@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  chal:
+    build: ./src
+    ports:
+    - "127.0.0.1:8002:8080"
+
+  solver:
+    build: ./solver
+    environment:
+      - ADDRESS=chal
+      - PORT=8080
+    depends_on:
+    - chal
+    profiles:
+    - solver

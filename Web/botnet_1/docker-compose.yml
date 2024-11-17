@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  chal:
+    build: ./src
+    ports:
+    - "127.0.0.1:8001:8000"
+    environment:
+    - DOMAIN=botnet.2024.sunshinectf.games
+    - DEBUG=FALSE

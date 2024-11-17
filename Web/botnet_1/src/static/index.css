@@ -1,0 +1,79 @@
+html {
+    font-family: "Roboto Mono", "Courier New", monospace;
+    font-weight: medium;
+    background: url("/static/wall.bmp");
+    color: black;
+    box-sizing: border-box;
+}
+
+.header {
+    margin: 10px auto;
+    margin-top: 20px;
+    padding: 10px;
+    border: #9eb1d7 5px solid;
+    background: #6a91d8;
+    width: calc(100vw - 40px);
+    max-width: 750px;
+}
+
+.header > span {
+    display: block;
+    font-weight: bold;
+    font-style: italic;
+    font-family: "Roboto Mono", "Courier New", monospace;
+}
+
+.header > img {
+    width: 300px;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+    flex-grow: 1 0;
+    max-width: 800px;
+    margin: auto;
+}
+
+.main > div {
+    display: block;
+    background: #9FB2D7;
+    margin: 10px;
+    padding: 10px;
+    border: #678fd7 5px solid;
+    height: calc(100vh - 210px);
+    overflow: auto;
+}
+
+.main > .sidebar {
+    width: 200px;
+}
+
+.main > .body {
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, ul {
+    margin: 5px 0;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+.alt {
+    opacity: 0.5;
+}
+
+.pfp {
+    float: left;
+    margin: 15px;
+    width: 64px;
+    height: 64px;
+    border: 3px #678fd7 solid;
+}
+
+.warn {
+    color: maroon;
+    font-weight: bold;
+}

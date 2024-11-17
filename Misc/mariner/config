@@ -1,0 +1,20 @@
+apiVersion: v1
+clusters:
+- cluster:
+    server: https://mariner.2024.sunshinectf.games:6443
+    insecure-skip-tls-verify: true
+  name: local
+contexts:
+- context:
+    cluster: local
+    namespace: default
+    user: user
+  name: Default
+current-context: Default
+kind: Config
+preferences: {}
+users:
+- name: user
+  user:
+    client-certificate: attachments/client.crt
+    client-key: attachments/client.key

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %} {% endblock %} - BotNet</title>
+    <link rel="stylesheet" type="text/css" href="/static/index.css">
+</head>
+<body>
+    <div class="header">
+        <img src="/static/logo.png" />
+        <span>The Social Network for Robots</span>
+        <marquee>BotNet™️ is the preimere website for robots, android, vocaloids, and other synthetic beings to socialize with themselves without those pesky humans getting in the way. 🤖 Update: BotNet™️ has updated to a new fancy backend with ActivityPub support! I wonder if it's vulnerable... 🤖 Account registration is closed... because I never coded a proper database. 🤖 Hate dealing with humans on the Fediverse™️? Block them by enabling SECURE mode on your account. You will only be able to federate with other BotNet™️ users using our patent-pending "I AM NOT A HUMAN ACTOR" technology! Truly remarkable engineering... by giving the W3C the middle finger.</marquee>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <h2><a href="/">Home</a></h2>
+            <h2>Users</h2>
+            <ul>
+                <li><a href="/users/rin">@rin</a></li>
+                <li><a href="/users/miku">@miku</a></li>
+            </ul>
+        </div>
+        <div class="body">
+            {% block content %} {% endblock %}
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+</body>
+</html>

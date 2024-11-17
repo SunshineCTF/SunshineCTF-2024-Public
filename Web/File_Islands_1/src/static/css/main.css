@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: black; */
+    color: #a85c34;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating the image */
+    background-attachment: fixed; /* Keeps the image fixed during scroll */
+}
+h1 {
+    color: #d9534f;
+    font-size: 3em;
+    margin-top: 50px;
+}
+h2 {
+    color: #d9534f;
+    font-size: 2em;
+}
+p {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+strong {
+    color: #bb6c0b;
+}
+.container {
+    background-color: black;
+    border-radius: 100px;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+.home-bg {
+    background-image: url('../images/island.jpg');
+}
+
+.not-found-bg {
+    background-image: url('../images/cave.jpg');
+}

@@ -1,0 +1,12 @@
+TARGET := jacksonville
+
+RELRO := default
+NX := 1
+
+GLIBC_VERSION := 2.38
+DOCKER_IMAGE := i95-jacksonville
+DOCKER_PORTS := 24608
+DOCKER_TIMELIMIT := 30
+
+PUBLISH_BUILD := $(TARGET)
+PUBLISH_LIBC := libc.so.6

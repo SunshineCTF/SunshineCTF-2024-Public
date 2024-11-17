@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} @{{user.get('username')}} {% endblock %}
+
+{% block content %}
+    <img src="{{user.get('img')}}" class="pfp" />
+    <h1>{{user.get('display')}}
+    <h2 class="alt">{{user.get('username_full')}}</h2>
+    <!-- User content cannot be sanitized because Mastodon is stupid and uses HTML.
+        Hopefully that isn't an issue... -->
+    <p>{{ user.get('bio') | safe }}</p>
+    {% if external %}
+    <span class="warn">WARNING: This is a REMOTE USER and is NOT in scope.</span>
+    {% endif %}
+    <hr>
+    {% for post in user["posts"] %}
+        <div class="post">
+            {% if post["content"] %}
+                {{ post["content"] | safe }}
+            {% else %}
+                Reposts not supported <a href="{{post}}" target="_blank">View External Post</a>
+            {% endif %}
+            <hr>
+        </div>
+    {% endfor %}
+    {% if user["posts"] == [] %}
+        <p class="alt"><i>No Posts (yet!)</i></p>
+    {% endif %}
+
+{% endblock %}

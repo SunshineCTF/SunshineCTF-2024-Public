@@ -1,0 +1,10 @@
+certifi==2024.8.30
+charset-normalizer==3.3.2
+gevent==24.2.1
+greenlet==3.0.3
+idna==3.8
+requests==2.32.3
+urllib3==2.2.2
+websocket-client==1.8.0
+zope.event==5.0
+zope.interface==7.0.3

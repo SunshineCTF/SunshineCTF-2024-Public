@@ -1,0 +1,4 @@
+# Tell alimuhammadsecured to remove all non-existent (404) paths!
+
+User-agent: *
+Disallow: /admin

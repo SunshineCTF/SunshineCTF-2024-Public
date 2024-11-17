@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  chal:
+    build: ./src
+    ports:
+    - "127.0.0.1:8000:8000"
+    environment:
+    - DOMAIN=your-domain
+    - FLAG=sun{lf1_us1ng_proc_f1les_1s_fUN}

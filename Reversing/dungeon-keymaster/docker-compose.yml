@@ -1,7 +1,11 @@
-version: '3'
+name: sun24-dungeon-keymaster
 
 services:
   chal:
     build: ./src
+    restart: unless-stopped
     ports:
-    - "127.0.0.1:8734:8734"
+    - "127.0.0.1:24101:8734"
+    mem_limit: 256m
+    cpus: 0.5
+    pids_limit: 512

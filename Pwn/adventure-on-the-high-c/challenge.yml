@@ -1,0 +1,28 @@
+version: "0.1"
+name: "Adventure on the High C"
+author: "tj_oconnor"
+category: Pwn
+description: |-
+  # Adventure! on the High C
+
+  Set sail on a perilous journey through treacherous C waters, where misplaced cannons are the least of your concerns. Your mission? Board the "Adventure on the High C!" and lay siege to your enemies. Navigate your way through the fog of pointers, but beware: one wrong move, and you might just blow a hole in your own stack!
+
+  *Competitors are encouraged to develop their exploit in the Docker Container (uncomment the lines in the Dockerfile if you'd like to build a development container with pwntools, pwndbg, and gdb)*
+
+  Deployment: `kcolley`
+
+  * [ship.bin](/files/sun/24/Pwn/adventure-on-the-high-c/ship.bin)
+  * [Dockerfile](/files/sun/24/Pwn/adventure-on-the-high-c/Dockerfile)
+attribution: "Written by tj_oconnor for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: standard
+value: 275
+connection_info: "nc ctf.hackucf.org 24003"
+flags:
+  - "sun{v1ct0RY_on_Th3_High_s34}"
+tags:
+  - "sunshinectf-2024"
+  - "expert"
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

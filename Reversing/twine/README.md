@@ -1,7 +1,13 @@
 # Twine
 
-Basic run `strings` on the binary type challenge. Nothing complicated, meant to be a super easy beginner challenge.
+Meant to be a super easy beginner challenge.
 
-## Solve
+## Building
 
-`strings challenge`
+`make` (builds `attachments/challenge` from `main.c`)
+
+## Files for players
+
+- `attachments/challenge`
+
+See [writeup.md](writeup.md) for the solution.

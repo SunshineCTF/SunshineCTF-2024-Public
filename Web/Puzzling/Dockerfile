@@ -30,8 +30,10 @@ RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/writable \
     && chmod -R 755 /var/www/html/public
 
-# Install PHP dependencies with Composer
-RUN composer update
+# Install PHP dependencies with Composer.
+# Note: use the pinned composer.lock (CodeIgniter 4.5.4) instead of `composer
+# update`; updating pulls CI 4.6+, whose Config\Format expects a
+# $jsonEncodeDepth property the challenge's config lacks, breaking the app.
 RUN composer install --no-dev --optimize-autoloader
 
 # Copy the Apache vhost configuration

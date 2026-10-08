@@ -1,0 +1,18 @@
+# BotNet flag 2 reuses the SAME container as Web/botnet_1 (one deployment serves
+# both flags on port 24301). This compose file shares botnet_1's build context
+# and project name, so `pwnmake check[Web/botnet_2]` can bring the stack up and
+# tear it down on its own, just like botnet_1.
+name: sun24-botnet
+
+services:
+  chal:
+    build: ../botnet_1/src
+    restart: unless-stopped
+    ports:
+    - "127.0.0.1:24301:8000"
+    environment:
+    - DOMAIN=botnet.ctf.hackucf.org
+    - DEBUG=FALSE
+    mem_limit: 256m
+    cpus: 0.5
+    pids_limit: 512

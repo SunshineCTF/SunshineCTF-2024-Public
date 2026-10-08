@@ -1,21 +1,24 @@
 # Author: Oreomeister (Twitter & Github - 0reome1ster)
 
 from pwn import *
+import os
 
-binary = 'secure_flag_terminal'
+binary = '.build/secure_flag_terminal' if os.path.exists('.build/secure_flag_terminal') else 'secure_flag_terminal'
 elf = context.binary = ELF(binary)
 
-libc = ELF('libc.so.6', checksec=False)
+libc = ELF('publish/libc.so.6', checksec=False)
 
 gs = """
 continue
 """
 
 def start():
+    HOST = os.environ.get("HOST")
+    PORT = os.environ.get("PORT")
     if args.GDB:
         return gdb.debug(elf.path, gdbscript=gs)
-    elif args.REMOTE:
-        return remote(args.HOST, args.PORT)
+    elif HOST or args.REMOTE:
+        return remote(HOST or args.HOST or "127.0.0.1", int(PORT or args.PORT or 24002))
     else:
         return elf.process()
 

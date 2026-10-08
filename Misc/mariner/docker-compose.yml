@@ -1,20 +1,19 @@
-version: '3'
+name: sun24-mariner
+
 services:
   rancher-server:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: unless-stopped
+    privileged: true
+    environment:
+      - TLS_SAN=mariner.ctf.hackucf.org
     ports:
-      - "6444:6444"  # Expose Rancher server on port 6444
-      - "6443:6443"
-    networks:
-      - rancher-net
-    volumes:
-      # Use a named volume to share the TLS directory between services
-      - ./attachments/client-ca.key:/var/lib/rancher/k3s/server/tls/client-ca.key
-      - ./attachments/client-ca.crt:/var/lib/rancher/k3s/server/tls/client-ca.crt
-      - ./attachments/server-ca.crt:/var/lib/rancher/k3s/server/tls/server-ca.crt
-
-networks:
-  rancher-net:
-    driver: bridge
+      - "24501:6443"   # Kubernetes API server (players connect here)
+    tmpfs:
+      - /run
+      - /var/run
+    mem_limit: 1500m
+    cpus: 2.0
+    pids_limit: 4096

@@ -1,0 +1,21 @@
+version: "0.1"
+name: "icmp-1"
+author: "rivdb"
+category: Forensics
+description: |-
+  We've captured some network traffic. Our intelligence team believes the opposition have pinged some important data across, can you find it?
+
+  * [icmp1.pcapng](/files/sun/24/Forensics/icmp1/icmp1.pcapng)
+attribution: "Written by rivdb for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: standard
+value: 25
+flags:
+  - "sun{0n1y_a_p1ng_@way}"
+tags:
+  - "sunshinectf-2024"
+  - "beginner"
+solution:
+  path: writeup.md
+  state: hidden
+next: "icmp-2"
+state: visible

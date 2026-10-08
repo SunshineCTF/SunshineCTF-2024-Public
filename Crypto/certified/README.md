@@ -1,3 +1,7 @@
 # Certified
 
-Flag in X.509 Certificate Extensions
+## Files for players
+
+- `attachments/server.pem`
+
+See [writeup.md](writeup.md) for the solution.

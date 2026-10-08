@@ -1,0 +1,22 @@
+version: "0.1"
+name: "Fort Pierce"
+author: "guyinatuxedo"
+category: Pwn
+description: |-
+  Uhh, it's another city along I-95, not much else of interest.
+
+  Deployment: `oreomeister` and `kcolley`
+
+  * [fortpierce](/files/sun/24/i95/i95-fortpierce/fortpierce)
+attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: standard
+value: 75
+connection_info: "nc ctf.hackucf.org 24606"
+flags:
+  - "sun{Although, this dragon is a really nice dragon, they gave me great car buying advice.}"
+tags:
+  - "i95"
+  - "mini-pwn"
+  - "sunshinectf-2024"
+  - "beginner"
+state: visible

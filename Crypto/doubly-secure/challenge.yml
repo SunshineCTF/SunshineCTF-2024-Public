@@ -1,0 +1,23 @@
+version: "0.1"
+name: "Doubly Secure"
+author: "Helithumper"
+category: Crypto
+description: |-
+  # Doubly Secure
+
+  Shh. This website only has TLS enabled. Come here and we can talk more privately.
+attribution: "Written by Helithumper for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "https://doubly-secure.ctf.hackucf.org"
+flags:
+  - "sun{ag3_p1u5_tls_equalz_w3bs0ck3ts}"
+tags:
+  - "2024"
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

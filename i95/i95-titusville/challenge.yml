@@ -1,0 +1,22 @@
+version: "0.1"
+name: "Titusville"
+author: "guyinatuxedo"
+category: i95
+description: |-
+  Maybe just go the other way at the exit and go to Orlando instead :D
+
+  Deployment: `oreomeister` and `kcolley`
+attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "nc ctf.hackucf.org 24607"
+flags:
+  - "sun{Wow this dragon has a super cool sword. Although it's a bit heavy, and doesn't seem to like us :(}"
+tags:
+  - "2024"
+files:
+  - ../../publish/i95/i95-titusville/titusville
+state: visible

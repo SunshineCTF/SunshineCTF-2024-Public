@@ -1,0 +1,23 @@
+version: "0.1"
+name: "Puzzling"
+author: "tsuto"
+category: Web
+description: |-
+  Everybody needs a little break from hacking from time to time. Why not enjoy this simple Sudoku puzzle? Surely it's not hiding anything else...right?
+
+  Files: [Puzzling.zip](https://drive.google.com/file/d/1ByeerHok7c2qhFGG9RzJuzhOGsgKgA1g/view?usp=drive_link)
+attribution: "Written by tsuto for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "https://puzzling.ctf.hackucf.org"
+flags:
+  - "sun{4_gr1d_full_0f_3nt1ti3s}"
+tags:
+  - "2024"
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

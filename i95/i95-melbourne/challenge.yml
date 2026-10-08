@@ -1,0 +1,22 @@
+version: "0.1"
+name: "Melbourne"
+author: "guyinatuxedo"
+category: i95
+description: |-
+  Drive on down the I-95 to your favorite cities along the way! First up: Melbourne!
+
+  Deployment: `oreomeister` and `kcolley`
+attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "nc ctf.hackucf.org 24601"
+flags:
+  - "sun{Windows are quite enjoyable to look out of. I think there's a duck over there.}"
+tags:
+  - "2024"
+files:
+  - ../../publish/i95/i95-melbourne/melbourne
+state: visible

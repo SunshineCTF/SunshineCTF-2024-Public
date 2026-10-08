@@ -1,0 +1,27 @@
+version: "0.1"
+name: "Dungeon Keymaster"
+author: "solarbonite"
+category: Reversing
+description: |-
+  # Dungeon Keymaster
+
+  The sun blazes down upon the CTF. Just as though it were a summer day in Florida.
+
+  In the dungeon, though, another adventure awaits for CTF-ers. This dungeon has no light, such that the staring sun cannot stare into its depths. In this dungeon, the keymaster awaits. Tell the master the code, and he will free thee, and will show the sunlight to the wary traveler.
+attribution: "Written by solarbonite for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "https://dungeon-keymaster.ctf.hackucf.org"
+flags:
+  - "sun{behold_challenger_here_is_the_answer_to_thy_wishes_three_here_is_the_contents_of_the_dungeon_key}"
+tags:
+  - "2024"
+files:
+  - dungeon-keymaster.2024.sunshinectf.games/app
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

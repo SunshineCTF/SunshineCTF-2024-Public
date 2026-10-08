@@ -6,6 +6,9 @@ DOCKER_CHALLENGE_PATH := $(DIR)/attachments/jungle.bin
 
 UBUNTU_VERSION := 24.04
 
-DOCKER_IMAGE := jungle
+DOCKER_IMAGE := sun24-jungle
 DOCKER_PORTS := 24005
 DOCKER_TIMELIMIT := 30
+
+# `pwnmake check`: run the exploit and verify it prints the flag
+$(call ctf_check,$(DIR),$(DOCKER_PORTS),python3 solve)

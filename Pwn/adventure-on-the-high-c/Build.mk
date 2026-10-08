@@ -32,7 +32,7 @@ endif #!BUILD_WITH_PWNABLEHARNESS
 
 UBUNTU_VERSION := 24.04
 
-DOCKER_IMAGE := ship
+DOCKER_IMAGE := sun24-ship
 DOCKER_PORTS := 24003
 
 # kcolley: When testing the author exploit against the remote challenge server,
@@ -40,3 +40,8 @@ DOCKER_PORTS := 24003
 # teams in remote parts of the world with higher round-trip latency, I decided
 # to increase the time limit for this challenge to 5 minutes.
 DOCKER_TIMELIMIT := 300
+
+# `pwnmake check`: the exploit loops/retries and can take ~2 min, so raise the
+# per-solver timeout.
+CHECK_TIMEOUT := 300
+$(call ctf_check_slow,$(DIR),$(DOCKER_PORTS),python3 solve)

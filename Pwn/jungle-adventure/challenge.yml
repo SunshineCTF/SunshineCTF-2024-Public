@@ -1,0 +1,36 @@
+version: "0.1"
+name: "Welcome to the Jungle"
+author: "tj_oconnor"
+category: Pwn
+description: |-
+  # Welcome to the Jungle
+
+  Welcome to the Jungle, brave explorer! You've found yourself in the depths of a
+  treacherous wilderness, armed with little more than a knapsack of questionable
+  supplies and your wits. Somewhere out there, a sly *genie* holds the key to
+  knowledge that could help you escape... if you can charm it right. But beware:
+  this jungle's full of pitfalls, lurking tigers, and hidden mysteries. Only those
+  with a keen eye for detail (and maybe a knack for bending reality a bit) will
+  make it out with the flag. Can you navigate the *heap* of pitfalls, uncover
+  secrets, and outsmart the genie? Remember, fortune favors the bold—and sometimes
+  the lucky!
+
+  Deployment: `kcolley`
+attribution: "Written by tj_oconnor for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "nc ctf.hackucf.org 24005"
+flags:
+  - "sun{W3lc0m3_2Th3_Jungl3__We_h4v3_n0_fUn}"
+tags:
+  - "2024"
+files:
+  - ../../publish/Pwn/jungle-adventure/jungle.bin
+  - ../../publish/Pwn/jungle-adventure/libc.so.6
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

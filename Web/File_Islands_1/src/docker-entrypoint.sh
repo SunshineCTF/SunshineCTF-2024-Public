@@ -11,7 +11,7 @@ SECRET_KEY=${SECRET_KEY:-}
 # Start CTFd
 echo "Starting Challenge"
 exec gunicorn 'main:create_app()' \
-        --bind '0.0.0.0:8000'
+        --bind '0.0.0.0:8000' \
         --workers $WORKERS \
         --worker-tmp-dir "$WORKER_TEMP_DIR" \
         --worker-class "$WORKER_CLASS" \

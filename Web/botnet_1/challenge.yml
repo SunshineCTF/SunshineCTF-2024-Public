@@ -1,0 +1,23 @@
+version: "0.1"
+name: "BotNet (flag 1)"
+author: "shuga__"
+category: Web
+description: |-
+  A bunch of robots have started a new Mastodon instance called BotNet... but wait! That's not Mastodon! What secrets are they hiding from us, and why is one user more secretive than the other?
+
+  (Submit flag_1 here)
+attribution: "Written by shuga__ for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "https://botnet.ctf.hackucf.org"
+flags:
+  - "sun{1_c4n_r34d_b0ts}"
+tags:
+  - "2024"
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

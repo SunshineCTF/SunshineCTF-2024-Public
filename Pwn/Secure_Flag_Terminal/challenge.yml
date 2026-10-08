@@ -1,0 +1,26 @@
+version: "0.1"
+name: "Secure Flag Terminal"
+author: "Oreomeister"
+category: Pwn
+description: |-
+  # Hackers Beware
+
+  Ahoy, brave adventurer! 🏴‍☠️ Welcome to the Secure Flag Terminal, a digital fortress where only the most daring hackers venture. Your quest, should you choose to embark on it, is to infiltrate this high-tech stronghold and retrieve the legendary flag hidden within.
+
+  Legend tells of Oreomeister, a mysterious and cunning figure who has fortified and hardended the terminal with layers of security measures. Many have tried to outsmart Oreomeister, but few have succeeded. Will you be the one to claim the flag and earn eternal glory?
+attribution: "Written by Oreomeister for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "nc ctf.hackucf.org 24002"
+flags:
+  - "sun{H0us3_Of_F0rcE_w1th_4_fUn_tW!$t}"
+tags:
+  - "2024"
+files:
+  - ../../publish/Pwn/Secure_Flag_Terminal/secure_flag_terminal
+  - ../../publish/Pwn/Secure_Flag_Terminal/libc.so.6
+  - ../../publish/Pwn/Secure_Flag_Terminal/ld-linux-x86-64.so.2
+state: visible

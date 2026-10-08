@@ -1,0 +1,22 @@
+version: "0.1"
+name: "Boca Raton"
+author: "guyinatuxedo"
+category: i95
+description: |-
+  It's Boca time!
+
+  Deployment: `oreomeister` and `kcolley`
+attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "nc ctf.hackucf.org 24610"
+flags:
+  - "sun{So many similar challs... hmmmm, it would be super nice if they were automated.}"
+tags:
+  - "2024"
+files:
+  - ../../publish/i95/i95-bocaraton/bocaraton
+state: visible

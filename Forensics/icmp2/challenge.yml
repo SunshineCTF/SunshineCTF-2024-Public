@@ -1,0 +1,22 @@
+version: "0.1"
+name: "icmp-2"
+author: "rivdb"
+category: Forensics
+description: |-
+  Once again, we've captured some network traffic. Once again, we believe the opposition have been pinging some important information across... can you try and find the flag?
+attribution: "Written by rivdb for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+flags:
+  - "sun{1cmp_1s_4un_1337}"
+tags:
+  - "2024"
+files:
+  - attachments/icmp2.pcapng
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

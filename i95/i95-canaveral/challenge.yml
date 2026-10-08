@@ -1,0 +1,22 @@
+version: "0.1"
+name: "Canaveral (2024)"
+author: "guyinatuxedo"
+category: i95
+description: |-
+  Drive your way to the greatest Space Coast in the United States!
+
+  Deployment: `oreomeister` and `kcolley`
+attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "nc ctf.hackucf.org 24602"
+flags:
+  - "sun{Wait, that duck isn't a duck, it's really a polar bear.}"
+tags:
+  - "2024"
+files:
+  - ../../publish/i95/i95-canaveral/canaveral
+state: visible

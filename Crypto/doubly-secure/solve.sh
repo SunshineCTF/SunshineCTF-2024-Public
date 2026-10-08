@@ -4,7 +4,7 @@
 # Note: this script assumes that the server is running on localhost:8080
 
 ADDRESS=${1:-localhost}
-PORT=${2:-8080}
+PORT=${2:-24401}
 
 docker build -t solver ./solver
 

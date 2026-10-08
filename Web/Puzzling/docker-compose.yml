@@ -1,7 +1,11 @@
-version: '3'
+name: sun24-puzzling
 
 services:
   puzzling:
     build: .
+    restart: unless-stopped
     ports:
-    - "127.0.0.1:8003:80"
+    - "127.0.0.1:24304:80"
+    mem_limit: 512m
+    cpus: 1.0
+    pids_limit: 512

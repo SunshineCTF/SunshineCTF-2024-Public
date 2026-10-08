@@ -1,0 +1,26 @@
+version: "0.1"
+name: "FlagShop"
+author: "alimuhammadsecured"
+category: Pwn
+description: |-
+  Welcome to the SECURE shop, where your goal is to explore the platform and
+  uncover the secrets hidden within. After creating a user account, you'll
+  interact with different features of the system. However, the admin panel
+  remains restricted, and your challenge is to figure out how to access it.
+attribution: "Written by alimuhammadsecured for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "nc ctf.hackucf.org 24001"
+flags:
+  - "sun{c@n_st1ll_r3@d_off_the_he@p_fr0m_st@ck_po!nters!}"
+tags:
+  - "2024"
+files:
+  - ../../publish/Pwn/FlagShop/flagshop
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

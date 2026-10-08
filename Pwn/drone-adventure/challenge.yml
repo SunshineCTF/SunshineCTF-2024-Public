@@ -1,0 +1,27 @@
+version: "0.1"
+name: "Drone Adventure"
+author: "tj_oconnor"
+category: Pwn
+description: |-
+  # Drone Adventure!
+
+  Your pwn, if you choose to accept it, is to intercept and take control of a high-tech tiger drone carrying a classified flag on a critical reconnaissance mission. The drone is loaded with specialized modules and protected by top-tier security protocols, and it’s up to you to unlock hidden functionalities.
+
+  Deployment: `kcolley`
+attribution: "Written by tj_oconnor for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "nc ctf.hackucf.org 24004"
+flags:
+  - "sun{drone_Pilot3d_rhrough_th3_cloud5}"
+tags:
+  - "2024"
+files:
+  - ../../publish/Pwn/drone-adventure/drone.bin
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

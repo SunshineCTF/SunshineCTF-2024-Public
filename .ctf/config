@@ -1,0 +1,40 @@
+# ctfcli project config. Don't commit credentials here: set CTFCLI_URL and
+# CTFCLI_ACCESS_TOKEN in the environment instead (they override [config]).
+[config]
+url =
+access_token =
+
+[challenges]
+Crypto/adventure-cipher =
+Crypto/certified =
+Crypto/doubly-secure =
+Forensics/icmp1 =
+Forensics/icmp2 =
+Misc/mariner =
+Pwn/FlagShop =
+Pwn/Secure_Flag_Terminal =
+Pwn/adventure-on-the-high-c =
+Pwn/drone-adventure =
+Pwn/heap-01 =
+Pwn/jungle-adventure =
+Reversing/build-a-flag-workshop =
+Reversing/dropped-elf =
+Reversing/dungeon-keymaster =
+Reversing/twine =
+Scripting/guessy-programmer-0 =
+Scripting/guessy-programmer-1 =
+Scripting/guessy-programmer-2 =
+Scripting/guessy-programmer-3 =
+Web/File_Islands_1 =
+Web/Puzzling =
+Web/botnet_1 =
+Web/botnet_2 =
+i95/i95-bocaraton =
+i95/i95-canaveral =
+i95/i95-daytonabeach =
+i95/i95-fortpierce =
+i95/i95-jacksonville =
+i95/i95-jupiter =
+i95/i95-melbourne =
+i95/i95-palmbeach =
+i95/i95-titusville =

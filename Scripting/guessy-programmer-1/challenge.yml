@@ -1,0 +1,32 @@
+version: "0.1"
+name: "Guessy Programmer 1"
+author: "solarbonite"
+category: Scripting
+description: |-
+  Adventurer beware!
+
+  This challenge is not for the faint of heart.
+
+  Scour through history, through time, through place.
+
+  Read the excellent material.
+
+  Find the flag.
+
+  ## PS
+  Luke, *use the \[Rr]\(\[Ee]\[Gg]?)+\[Xx]*.
+
+  - `([Oo][Bb][Ii])-+([Ww][Aa][Nn]) ?(K[Ee][Nn][Oo][Bb][iI])+`
+attribution: "Written by solarbonite for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+flags:
+  - "sun{this_flag_was_dug_up_in_history_it_belongs_in_a_museum}"
+tags:
+  - "2024"
+files:
+  - attachments/guessy_programmer_1
+state: visible

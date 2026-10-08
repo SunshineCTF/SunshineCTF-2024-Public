@@ -37,3 +37,7 @@ default.Dockerfile
 .DS_Store
 thumbs.db
 ._*
+
+# per-project build/publish symlinks created by `pwnmake check` (and PH 2.3.2)
+.build
+publish

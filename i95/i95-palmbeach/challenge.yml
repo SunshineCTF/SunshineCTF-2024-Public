@@ -1,0 +1,22 @@
+version: "0.1"
+name: "Palm Beach"
+author: "guyinatuxedo"
+category: i95
+description: |-
+  Get your tan on!
+
+  Deployment: `oreomeister` and `kcolley`
+attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "nc ctf.hackucf.org 24603"
+flags:
+  - "sun{I should probably wash my window, that polar bear looks like a duck.}"
+tags:
+  - "2024"
+files:
+  - ../../publish/i95/i95-palmbeach/palmbeach
+state: visible

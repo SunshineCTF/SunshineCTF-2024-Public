@@ -1,0 +1,24 @@
+version: "0.1"
+name: "Adventure Cipher"
+author: "anthony.js"
+category: Crypto
+description: |-
+  Can you crack Sir Alaric's message?
+
+  > Note: The alphabet is `abcdefghijklmnopqrstuvwxyz_{} `
+attribution: "Written by anthony.js for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+flags:
+  - "sun{the_almighty_alaric_and_blaze}"
+tags:
+  - "2024"
+files:
+  - attachments/letter
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

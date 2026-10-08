@@ -1,0 +1,24 @@
+version: "0.1"
+name: "Build-A-Flag-Workshop"
+author: "dpresso"
+category: Reversing
+description: |-
+  # Build-A-Flag-Workshop
+
+  Don't you ever want to customize your very own flag? Well now you can with Chompy's brand new Build-A-Flag-Workshop (patent pending)!
+attribution: "Written by dpresso for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+flags:
+  - "sun{all_we_have_to_decide_is_what_to_do_with_the_time_given_to_us-gandalf-chompy}"
+tags:
+  - "2024"
+files:
+  - attachments/build-a-flag-workshop
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

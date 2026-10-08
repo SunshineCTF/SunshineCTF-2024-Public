@@ -25,3 +25,7 @@ HOSTNAME=17ca8307c07fPYTHON_VERSION=3.11.9PWD=/opt/chalDOMAIN=your-domainPYTHON_
 ```
 
 flag: `sun{lf1_us1ng_proc_f1les_1s_fUN}`
+
+## Additional notes
+
+An easy adventure-themed LFI: a challenge that abuses poor programming practices to read the environment variable of flag stored at `/proc/self/environ`.

@@ -1,0 +1,22 @@
+version: "0.1"
+name: "Certified"
+author: "Helithumper"
+category: Crypto
+description: |-
+  You know what, I'll just give you the flag. Didn't even need to encrypt it. I'll even certify that it's the flag!
+attribution: "Written by Helithumper for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+flags:
+  - "sun{b3t_u_d1dnt_kn0w_b0ut_o1d_msgs!}"
+tags:
+  - "2024"
+files:
+  - attachments/server.pem
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

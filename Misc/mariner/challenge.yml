@@ -1,0 +1,28 @@
+version: "0.1"
+name: "Mariner"
+author: "aleccoder"
+category: Misc
+description: |-
+  arggggg we bought these maps off of some mercenaries in the dark seas figure out if we can use them to get some loot
+
+  Files:
+
+  - `server-ca.crt` (generated)
+attribution: "Written by aleccoder for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "https://ctf.hackucf.org:24501"
+flags:
+  - "sun{YALLLLLAMANINERONTHEHIGHSEES}"
+tags:
+  - "2024"
+files:
+  - attachments/client-ca.crt
+  - attachments/client-ca.key
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

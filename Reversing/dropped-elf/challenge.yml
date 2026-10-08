@@ -1,0 +1,19 @@
+version: "0.1"
+name: "Dropped ELF"
+author: "guyinatuxedo"
+category: Reversing
+description: |-
+  Oh no! I dropped my ELF and now it's shattered to pieces :(  How will I ever get the flag now??
+attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+flags:
+  - "sun{58b2f9c5}"
+tags:
+  - "2024"
+files:
+  - attachments/dropped.zip
+state: visible

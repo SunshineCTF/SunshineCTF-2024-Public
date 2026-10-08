@@ -1,0 +1,23 @@
+version: "0.1"
+name: "Jacksonville (2024)"
+author: "guyinatuxedo"
+category: i95
+description: |-
+  Gotta solve this one in time for the Patriots @ Jaguars game!
+
+  Deployment: `oreomeister` and `kcolley`
+attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "nc ctf.hackucf.org 24608"
+flags:
+  - "sun{I am looking out a window. Yes a window, why am I looking out a window?}"
+tags:
+  - "2024"
+files:
+  - ../../publish/i95/i95-jacksonville/jacksonville
+  - ../../publish/i95/i95-jacksonville/libc.so.6
+state: visible

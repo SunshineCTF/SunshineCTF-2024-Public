@@ -1,0 +1,22 @@
+version: "0.1"
+name: "Jupiter (2024)"
+author: "guyinatuxedo"
+category: i95
+description: |-
+  Do boys or girls go here?
+
+  Deployment: `oreomeister` and `kcolley`
+attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
+type: dynamic
+extra:
+  initial: 500
+  decay: 50
+  minimum: 100
+connection_info: "nc ctf.hackucf.org 24609"
+flags:
+  - "sun{What is this the dragon with a sword is showing us...? Wait isn't this like a previous chall?}"
+tags:
+  - "2024"
+files:
+  - ../../publish/i95/i95-jupiter/jupiter
+state: visible

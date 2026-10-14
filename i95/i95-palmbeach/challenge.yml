@@ -5,8 +5,6 @@ category: Pwn
 description: |-
   Get your tan on!
 
-  Deployment: `oreomeister` and `kcolley`
-
   * [palmbeach](/files/sun/24/i95/i95-palmbeach/palmbeach)
 attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
 type: standard

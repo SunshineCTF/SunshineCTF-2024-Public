@@ -5,8 +5,6 @@ category: Pwn
 description: |-
   Uhh, it's another city along I-95, not much else of interest.
 
-  Deployment: `oreomeister` and `kcolley`
-
   * [fortpierce](/files/sun/24/i95/i95-fortpierce/fortpierce)
 attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
 type: standard

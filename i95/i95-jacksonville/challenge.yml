@@ -5,8 +5,6 @@ category: Pwn
 description: |-
   Gotta solve this one in time for the Patriots @ Jaguars game!
 
-  Deployment: `oreomeister` and `kcolley`
-
   * [jacksonville](/files/sun/24/i95/i95-jacksonville/jacksonville)
   * [libc.so.6](/files/sun/24/i95/i95-jacksonville/libc.so.6)
 attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"

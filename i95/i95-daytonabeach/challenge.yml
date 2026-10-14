@@ -5,8 +5,6 @@ category: Pwn
 description: |-
   Where the drivers on the road are delusional and think they could be in NASCAR.
 
-  Deployment: `oreomeister` and `kcolley`
-
   * [daytonabeach](/files/sun/24/i95/i95-daytonabeach/daytonabeach)
   * [libc.so.6](/files/sun/24/i95/i95-daytonabeach/libc.so.6)
   * [ld-linux-x86-64.so.2](/files/sun/24/i95/i95-daytonabeach/ld-linux-x86-64.so.2)

@@ -5,8 +5,6 @@ category: Pwn
 description: |-
   Drive your way to the greatest Space Coast in the United States!
 
-  Deployment: `oreomeister` and `kcolley`
-
   * [canaveral](/files/sun/24/i95/i95-canaveral/canaveral)
 attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
 type: standard

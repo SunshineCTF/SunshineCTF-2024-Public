@@ -15,8 +15,6 @@ description: |-
   secrets, and outsmart the genie? Remember, fortune favors the bold—and sometimes
   the lucky!
 
-  Deployment: `kcolley`
-
   * [jungle.bin](/files/sun/24/Pwn/jungle-adventure/jungle.bin)
   * [libc.so.6](/files/sun/24/Pwn/jungle-adventure/libc.so.6)
 attribution: "Written by tj_oconnor for [SunshineCTF 2024](https://ctftime.org/event/2485)"

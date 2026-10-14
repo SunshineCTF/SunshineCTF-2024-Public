@@ -5,8 +5,6 @@ category: Pwn
 description: |-
   It's Boca time!
 
-  Deployment: `oreomeister` and `kcolley`
-
   * [bocaraton](/files/sun/24/i95/i95-bocaraton/bocaraton)
 attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
 type: standard

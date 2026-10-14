@@ -9,8 +9,6 @@ description: |-
 
   *Competitors are encouraged to develop their exploit in the Docker Container (uncomment the lines in the Dockerfile if you'd like to build a development container with pwntools, pwndbg, and gdb)*
 
-  Deployment: `kcolley`
-
   * [ship.bin](/files/sun/24/Pwn/adventure-on-the-high-c/ship.bin)
   * [Dockerfile](/files/sun/24/Pwn/adventure-on-the-high-c/Dockerfile)
 attribution: "Written by tj_oconnor for [SunshineCTF 2024](https://ctftime.org/event/2485)"

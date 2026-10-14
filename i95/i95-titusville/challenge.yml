@@ -5,8 +5,6 @@ category: Pwn
 description: |-
   Maybe just go the other way at the exit and go to Orlando instead :D
 
-  Deployment: `oreomeister` and `kcolley`
-
   * [titusville](/files/sun/24/i95/i95-titusville/titusville)
 attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"
 type: standard

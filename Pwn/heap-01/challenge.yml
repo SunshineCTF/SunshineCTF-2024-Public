@@ -13,8 +13,6 @@ description: |-
 
   oh no.
 
-  Deployment: `oreomeister` and `kcolley`
-
   * [heap01](/files/sun/24/Pwn/heap-01/heap01)
   * [libc.so.6](/files/sun/24/Pwn/heap-01/libc.so.6)
 attribution: "Written by guyinatuxedo for [SunshineCTF 2024](https://ctftime.org/event/2485)"

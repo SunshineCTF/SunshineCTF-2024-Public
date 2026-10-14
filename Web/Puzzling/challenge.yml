@@ -5,7 +5,7 @@ category: Web
 description: |-
   Everybody needs a little break from hacking from time to time. Why not enjoy this simple Sudoku puzzle? Surely it's not hiding anything else...right?
 
-  Files: [Puzzling.zip](https://drive.google.com/file/d/1ByeerHok7c2qhFGG9RzJuzhOGsgKgA1g/view?usp=drive_link)
+  * [Puzzling.zip](/files/sun/24/Web/Puzzling/Puzzling.zip)
 attribution: "Written by tsuto for [SunshineCTF 2024](https://ctftime.org/event/2485)"
 type: standard
 value: 175
